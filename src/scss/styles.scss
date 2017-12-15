@@ -1,4 +1,13 @@
-@import "variables.scss";
-@import "mixins.scss";
+//normalize via package
+@import 'normalize';
 
-@import "global.scss";
+//config
+@import "config/variables";
+@import "config/mixins";
+
+//layout
+@import "layout/global";
+@import "layout/fonts";
+
+//blocks
+@import "blocks/menu";

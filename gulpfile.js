@@ -33,7 +33,9 @@ function styles() {
         .pipe(plumber())
         .pipe(sourcemaps.init())
         .pipe(sassGlob())
-        .pipe(sass())
+        .pipe(sass({
+            includePaths: require('node-normalize-scss').includePaths
+        }))
         .pipe(groupMediaQueries())
         .pipe(cleanCSS())
         .pipe(rename({ suffix: ".min" }))
@@ -42,7 +44,7 @@ function styles() {
 }
 
 function scripts() {
-    return gulp.src(paths.src + "js/*.js")
+    return gulp.src(paths.src + "js/**/*.js")
         .pipe(plumber())
         .pipe(babel({ presets: ['env'] }))
         .pipe(uglify())
@@ -58,8 +60,8 @@ function html() {
 }
 
 function watch() {
-    gulp.watch(paths.src + "scss/*.scss", styles);
-    gulp.watch(paths.src + "js/*.js", scripts);
+    gulp.watch(paths.src + "scss/**/*.scss", styles);
+    gulp.watch(paths.src + "js/**/*.js", scripts);
     gulp.watch(paths.src + "*.html", html);
 }
 

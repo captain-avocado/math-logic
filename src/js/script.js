@@ -1,1 +1,0 @@
-let secondScript = 123;
