@@ -23,7 +23,7 @@ const replace = require('replace');
 
 const paths = {
   src: "./src/",
-  build: "./build/"
+  build: "./docs/"
 };
 
 function clean() {
