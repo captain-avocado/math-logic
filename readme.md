@@ -1,4 +1,4 @@
-Site is published on `https://klv-codehub.github.io/math-logic/`
+The site is published on [GitHub Pages](https://klv-codehub.github.io/math-logic/)
 
 
 # Описание задания
