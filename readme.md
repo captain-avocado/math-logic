@@ -1,3 +1,6 @@
+Site is published on `https://klv-codehub.github.io/math-logic/`
+
+
 # Описание задания
    ### В-9.
    
