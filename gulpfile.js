@@ -16,6 +16,8 @@ const browserSync = require('browser-sync').create();
 const sourcemaps = require('gulp-sourcemaps');
 const rename = require('gulp-rename');
 
+const imagemin = require('gulp-imagemin');
+
 const del = require('del');
 const replace = require('replace');
 
@@ -59,10 +61,18 @@ function html() {
         .pipe(gulp.dest(paths.build));
 }
 
+function images() {
+    return gulp.src(paths.src + "img/*.*")
+        .pipe(imagemin({ progressive: true }))
+        .pipe(gulp.dest(paths.build + "img/"));
+}
+
 function watch() {
     gulp.watch(paths.src + "scss/**/*.scss", styles);
     gulp.watch(paths.src + "js/**/*.js", scripts);
     gulp.watch(paths.src + "*.html", html);
+
+    gulp.watch(paths.src + "img/*.*", images);
 }
 
 function serve() {
@@ -78,10 +88,11 @@ gulp.task("clean", clean);
 gulp.task("styles", styles);
 gulp.task("scripts", scripts);
 gulp.task("html", html);
+gulp.task("images", images);
 gulp.task("watch", watch);
 gulp.task("serve", serve);
 gulp.task("default", gulp.series(
     clean,
-    gulp.parallel(styles, scripts, html),
+    gulp.parallel(styles, scripts, html, images),
     gulp.parallel(watch, serve)
 ));

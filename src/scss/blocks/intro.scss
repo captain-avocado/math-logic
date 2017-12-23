@@ -1,0 +1,23 @@
+.intro {
+  text-align: center;
+  &__title {
+    //font-size: rem(48px);
+    font-size: 48px;
+    //todo не работает функция rem???
+    margin-bottom: 30px;
+    font-weight: bold;
+  }
+  &__subtitle {
+    font-size: 22px;
+    margin-bottom: 40px;
+  }
+  &__paragraph {
+    font-size: 16px;
+    margin-bottom: 50px;
+    font-weight: lighter;
+  }
+  &__btns {
+    display: flex;
+    justify-content: center;
+  }
+}

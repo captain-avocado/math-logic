@@ -1,0 +1,17 @@
+.nav {
+  margin-left: auto;
+  text-transform: uppercase;
+
+  &__list {
+    display: flex;
+
+  }
+  &__item {
+    padding: 5px;
+  }
+  &__link:hover, .is-active {
+    font-weight: bold;
+  }
+
+}
+
