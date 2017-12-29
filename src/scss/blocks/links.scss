@@ -1,0 +1,12 @@
+.links {
+  display: flex;
+  margin-bottom: 10px;
+  &__item {
+    &:not(:last-of-type) {
+      margin-right: 25px;
+    }
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

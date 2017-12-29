@@ -11,88 +11,44 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/styles.min.css">
-    <title>Document</title>
+    <title>Синтаксический анализатор</title>
 </head>
 <body>
 <div class="wrapper">
-    <section class="section section_welcome" style="background-image: url('img/welcome-bg.jpg')">
-        <!--<div class="overlay"></div>-->
-        <div class="container">
-        <header class="header">
-            <a href="#" class="logo logo_welcome">breeze</a>
-            <nav class="nav">
-                <ul class="nav__list">
-                    <li class="nav__item is-active"><a href="" class="nav__link">home</a></li>
-                    <li class="nav__item"><a href="" class="nav__link">features</a></li>
-                    <li class="nav__item"><a href="" class="nav__link">rates</a></li>
-                    <li class="nav__item"><a href="" class="nav__link">contacts</a></li>
-                </ul>
-            </nav>
-        </header>
-            <div class="content">
-                <div class="intro">
-                    <div class="intro__text">
-                        <div class="intro__title">Free website for your app</div>
-                        <div class="intro__subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, aliquid.</div>
-                        <div class="intro__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. At deserunt dignissimos enim iure quas sint tempore? Doloremque ea iure vero!</div>
-                    </div>
-                    <div class="intro__btns">
-                        <a href="" class="btn btn_radius btn_more">learn more</a>
-                        <a href="" class="btn btn_radius btn_download">download app</a>
-                    </div>
-                </div>
-            </div>
+    <div class="container">
+        <div class="title">
+            <h1>Синтаксический анализатор</h1>
         </div>
-    </section>
-    <section class="section section_features">
-        <div class="container">
-            <div class="text-area">
-                <div class="text-area__ad">
-                    <div class="title">Features</div>
-                    <div class="text-area__descr">We created for your the most ingenious and impeccable features:</div>
-                </div>
-                <ul class="features">
-                    <li class="features__item">
-                        <div class="features__btn"></div>
-                        <div class="features__text">
-                            <div class="features__title">Payment system integration</div>
-                            <div class="features__descr">Integrated payment solutions are tools that your business can use to integrate accounting, customer relationship management (CRM) and other business applications with payments processing</div>
-                        </div>
-                    </li>
-                    <li class="features__item">
-                        <div class="features__btn"></div>
-                        <div class="features__text">
-                            <div class="features__title">Fraud Control System</div>
-                            <div class="features__descr">Control fraud occurs when a trusted person in a high position of responsibility in a company, corporation, or state subverts the organization and engages in extensive fraud for personal gain.</div>
-                        </div>
-                    </li>
-                    <li class="features__item">
-                        <div class="features__btn"></div>
-                        <div class="features__text">
-                            <div class="features__title">Mobile Top-up</div>
-                            <div class="features__descr">Top-up is an additional or extra amount or payment that restores something to the level that is required.</div>
-                        </div>
-                    </li>
-                    <li class="features__item">
-                        <div class="features__btn"></div>
-                        <div class="features__text">
-                            <div class="features__title">Free calling and messaging</div>
-                            <div class="features__descr">This app lets you use your smartphone to make free calls and send free text and photo messages to other users, on any device, network and country.</div>
-                        </div>
-                    </li>
-                    <li class="features__item">
-                        <div class="features__btn"></div>
-                        <div class="features__text">
-                            <div class="features__title">HD Calls</div>
-                            <div class="features__descr">Wideband audio, also known as HD voice, is high definition voice quality for telephony audio, contrasted with standard digital telephony. It extends the frequency range of audio signals transmitted over telephone lines.</div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
+        <div class="description">
+            Целые числа, кратные 10, но не кратные 4
         </div>
-    </section>
+        <form action="server.php" class="form" id="form">
+            <div class="form__fields">
+                <input type="text" id="input" placeholder="Введите значение" required>
+                <label for="input" id="label">Введите значение</label>
+            </div>
+            <div class="form__btns">
+                <button type="submit" class="button button_submit">Подтвердить</button>
+                <button type="reset" class="button button_reset">Очистить</button>
+            </div>
+        </form>
+        <div class="result"></div>
+        <div class="history">
+            <div class="title">История</div>
+            <div class="history__values"></div>
+        </div>
+    </div>
 </div>
-<!--DEV кооментарий разработчика!-->
+<div class="footer">
+    <ul class="links">
+        <li class="links__item">
+            <a href="https://github.com/klv-codehub" class="links__github">github</a>
+        </li>
+        <li class="links__item">
+            <a href="https://vk.com/kaloev.eltech" class="links__vk">vk</a>
+        </li>
+    </ul>
+</div>
 <script src="js/scripts.min.js"></script>
 </body>
 </html>

@@ -22,8 +22,8 @@ const del = require('del');
 const replace = require('replace');
 
 const paths = {
-  src: "./src/",
-  build: "./docs/"
+    src: "./src/",
+    build: "./docs/"
 };
 
 function clean() {
@@ -40,7 +40,7 @@ function styles() {
         }))
         .pipe(groupMediaQueries())
         .pipe(cleanCSS())
-        .pipe(rename({ suffix: ".min" }))
+        .pipe(rename({suffix: ".min"}))
         .pipe(sourcemaps.write("/"))
         .pipe(gulp.dest(paths.build + "css/"));
 }
@@ -48,9 +48,11 @@ function styles() {
 function scripts() {
     return gulp.src(paths.src + "js/**/*.js")
         .pipe(plumber())
-        .pipe(babel({ presets: ['env'] }))
+        .pipe(sourcemaps.init())
+        .pipe(babel({presets: ['env']}))
         .pipe(uglify())
         .pipe(concat("scripts.min.js"))
+        .pipe(sourcemaps.write("/"))
         .pipe(gulp.dest(paths.build + "js/"));
 }
 
@@ -63,7 +65,7 @@ function html() {
 
 function images() {
     return gulp.src(paths.src + "img/*.*")
-        .pipe(imagemin({ progressive: true }))
+        .pipe(imagemin({progressive: true}))
         .pipe(gulp.dest(paths.build + "img/"));
 }
 
