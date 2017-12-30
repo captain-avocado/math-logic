@@ -3,12 +3,15 @@
     submitBtn.addEventListener("click", (e) => {
         e.preventDefault();
         //получаем значение из поля #input
-        let getValue = function () {
+        let getValue = () => {
             return document.getElementById("input").value;
         };
 
+        let value = getValue();
+        console.log("analyzing new value = " + value);
+
         //преобразуем значение в массив цифр
-        let num = getValue().split("");
+        let num = value.split("");
 
         //устанавливаем значение итератора, равное 0
         let i = 0;
@@ -25,14 +28,16 @@
         //массив всех цифр
         let digits = nonZero.concat("0");
 
-        let hasMinus = function () {
+        let hasMinus = () => {
+            console.log("in minus");
             if (num[i] === "-") {
                 i++;
             }
             return nonZeroNum();
         };
 
-        let plusZeroNum = function () {
+        let plusZeroNum = () => {
+            console.log("in plusZero");
             if (num[i] === "0") {
                 i++;
                 return plusZeroNum();
@@ -40,42 +45,41 @@
                 return nonZeroNum();
             }
         };
-        let endNum = function () {
+        let endNum = () => {
+            console.log("in endNum");
             if (num.length === i) {
-                // alert("YAEHAH!!!");
                 return true;
             } else if (digits.indexOf(num[i]) >= 0) {
                 return plusZeroNum();
             } else {
-                // alert("ERROR!");
                 return false;
             }
         };
-        let continuationNum = function () {
+        let continuationNum = () => {
+            console.log("in contNum");
             if (nonZero.indexOf(num[i]) >= 0) {
                 return nonZeroNum();
             } else if (num[i] === "0") {
                 i++;
                 return endNum();
             } else {
-                // alert("ERROR!");
                 return false;
             }
         };
-        let nonZeroNum = function () {
+        let nonZeroNum = () => {
+            console.log("in nonZero");
             if (even.indexOf(num[i]) >= 0) {
                 i++;
-                return nonZeroNum();
+                return plusZeroNum();
             } else if (odd.indexOf(num[i]) >= 0) {
                 i++;
                 return continuationNum();
             } else {
-                // alert("ERROR!");
                 return false;
             }
         };
 
-        let analyze = function () {
+        let analyze = () => {
             return hasMinus();
         };
 
@@ -88,8 +92,8 @@
             result.innerHTML = "<strong>Значение НЕ соответствует грамматике</strong>";
             res.style.color = "crimson";
         }
-        if (getValue()) {
-            res.innerHTML = getValue() + "\u00A0\u00A0\u00A0";
+        if (value) {
+            res.innerHTML = value + "\u00A0";
         }
         document.querySelector(".history__values").appendChild(res);
     });
